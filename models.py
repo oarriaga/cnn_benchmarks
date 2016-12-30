@@ -77,14 +77,15 @@ if __name__ == '__main__':
         return model
 
     models_dictionary = {
-        'vgg16':load_vgg16(),
-        'vgg19':load_vgg19(),
-        'inceptionv3':load_inceptionv3(),
-        'resnet50':load_resnet50() }
+        'vgg16':load_vgg16,
+        'vgg19':load_vgg19,
+        'inceptionv3':load_inceptionv3,
+        'resnet50':load_resnet50 }
 
-    num_iterations = 1
+    num_iterations = 30
     for iteration in range(num_iterations):
         for model_name,model_function in models_dictionary.items():
+            print(model_name)
             model = model_function()
             K.clear_session()
 
