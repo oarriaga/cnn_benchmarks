@@ -1,0 +1,5 @@
+Function forward_pass_vgg19 called 0 times. 
+Execution time min: 0.034 
+Execution time max: 0.415 
+Execution time average: 0.110 
+Execution time variance: 0.023 

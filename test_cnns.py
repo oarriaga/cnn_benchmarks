@@ -7,6 +7,7 @@ from keras.applications.resnet50 import preprocess_input as resnet50_input
 from keras import backend as K
 from keras.preprocessing import image as keras_preprocessor
 import numpy as np
+import pickle
 import time
 
 DATA_PROFILE = {}
@@ -34,18 +35,21 @@ def print_data_profile():
         print('Execution time average: %.3f' % avg_time)
         print('Execution time variance: %.3f' % var_time)
 
-def save_data_profile(file_name):
+def save_data_profile(file_name,pickle_data=True):
     for function_name, data in DATA_PROFILE.items():
         max_time = np.max(data)
         min_time = np.min(data)
         avg_time = np.mean(data)
         var_time = np.var(data)
-        log_file = open(file_name,'w')
-        log_file.write('Function %s called %d times.' % (function_name, data[0]))
-        log_file.write('Execution time min: %.3f' % min_time)
-        log_file.write('Execution time max: %.3f' % max_time)
-        log_file.write('Execution time average: %.3f' % avg_time)
-        log_file.write('Execution time variance: %.3f' % var_time)
+        log_file = open(file_name+'log','w')
+        log_file.write('Function %s called %d times. \n' % (function_name, data[0]))
+        log_file.write('Execution time min: %.3f \n' % min_time)
+        log_file.write('Execution time max: %.3f \n' % max_time)
+        log_file.write('Execution time average: %.3f \n' % avg_time)
+        log_file.write('Execution time variance: %.3f \n' % var_time)
+        log_file.close()
+        if pickle_data == True:
+            pickle.dump(DATA_PROFILE,open(file_name+'.p','wb'))
 
 def clear_data_profile():
     global DATA_PROFILE
@@ -150,7 +154,7 @@ def test_cnns(num_iterations, log_filename = 'test_results.log'):
 
 if __name__ == '__main__':
 
-    test_cnns(num_iterations=1,log_filename='test_results.log')
+    test_cnns(num_iterations=5,log_filename='test_results')
 
 
 
