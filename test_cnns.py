@@ -36,26 +36,27 @@ def print_data_profile():
         print('Execution time variance: %.3f' % var_time)
 
 def save_data_profile(file_name,pickle_data=True):
+    log_file = open(file_name+'.log','w')
     for function_name, data in DATA_PROFILE.items():
         max_time = np.max(data)
         min_time = np.min(data)
         avg_time = np.mean(data)
         var_time = np.var(data)
-        log_file = open(file_name+'log','w')
-        log_file.write('Function %s called %d times. \n' % (function_name, data[0]))
+        log_file.write('Function %s called %d times. \n' % (function_name,
+								 len(data)))
         log_file.write('Execution time min: %.3f \n' % min_time)
         log_file.write('Execution time max: %.3f \n' % max_time)
         log_file.write('Execution time average: %.3f \n' % avg_time)
         log_file.write('Execution time variance: %.3f \n' % var_time)
-        log_file.close()
-        if pickle_data == True:
-            pickle.dump(DATA_PROFILE,open(file_name+'.p','wb'))
+    log_file.close()
+    if pickle_data == True:
+        pickle.dump(DATA_PROFILE,open(file_name+'.p','wb'))
 
 def clear_data_profile():
     global DATA_PROFILE
     DATA_PROFILE = {}
 
-def test_cnns(num_iterations, log_filename = 'test_results.log'):
+def test_cnns(num_iterations, log_filename = 'test_results'):
 
     @profile
     def load_resnet50():
@@ -154,7 +155,7 @@ def test_cnns(num_iterations, log_filename = 'test_results.log'):
 
 if __name__ == '__main__':
 
-    test_cnns(num_iterations=5,log_filename='test_results')
+    test_cnns(num_iterations=3,log_filename='test_results')
 
 
 

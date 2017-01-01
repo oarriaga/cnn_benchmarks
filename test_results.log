@@ -1,1 +1,40 @@
-Function forward_pass_inceptionv3 called 0 times.Execution time min: 0.929Execution time max: 0.929Execution time average: 0.929Execution time variance: 0.000
+Function load_resnet50 called 3 times. 
+Execution time min: 40.516 
+Execution time max: 46.175 
+Execution time average: 43.059 
+Execution time variance: 5.502 
+Function forward_pass_vgg16 called 3 times. 
+Execution time min: 0.029 
+Execution time max: 0.410 
+Execution time average: 0.156 
+Execution time variance: 0.032 
+Function forward_pass_resnet50 called 3 times. 
+Execution time min: 0.369 
+Execution time max: 0.810 
+Execution time average: 0.519 
+Execution time variance: 0.042 
+Function load_inceptionv3 called 3 times. 
+Execution time min: 110.227 
+Execution time max: 118.336 
+Execution time average: 113.311 
+Execution time variance: 12.845 
+Function forward_pass_inceptionv3 called 3 times. 
+Execution time min: 0.684 
+Execution time max: 0.933 
+Execution time average: 0.770 
+Execution time variance: 0.013 
+Function load_vgg16 called 3 times. 
+Execution time min: 1.396 
+Execution time max: 1.622 
+Execution time average: 1.473 
+Execution time variance: 0.011 
+Function forward_pass_vgg19 called 3 times. 
+Execution time min: 0.034 
+Execution time max: 0.036 
+Execution time average: 0.035 
+Execution time variance: 0.000 
+Function load_vgg19 called 3 times. 
+Execution time min: 1.624 
+Execution time max: 1.705 
+Execution time average: 1.678 
+Execution time variance: 0.001 
