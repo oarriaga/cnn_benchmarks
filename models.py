@@ -1,4 +1,5 @@
 from functools import wraps
+from keras.applications import InceptionV3,ResNet50,VGG16,VGG19
 from keras import backend as K
 import numpy as np
 import time
@@ -52,18 +53,18 @@ def clear_profile_data():
     global PROFILE_DATA
     PROFILE_DATA = {}
 
-if __name__ == '__main__':
+def graph_construction_test(num_iterations,
+                             log_filename = 'graph_construction_results.log'):
 
-    from keras.applications import InceptionV3,ResNet50,VGG16,VGG19
-
-    @profile
-    def load_inceptionv3():
-        model = InceptionV3(weights = 'imagenet')
-        return model
 
     @profile
     def load_resnet50():
         model = ResNet50(weights = 'imagenet')
+        return model
+
+    @profile
+    def load_inceptionv3():
+        model = InceptionV3(weights = 'imagenet')
         return model
 
     @profile
@@ -76,20 +77,44 @@ if __name__ == '__main__':
         model = VGG19(weights = 'imagenet')
         return model
 
-    models_dictionary = {
-        'vgg16':load_vgg16,
-        'vgg19':load_vgg19,
-        'inceptionv3':load_inceptionv3,
-        'resnet50':load_resnet50 }
+    @profile
+    def forward_pass_resnet50(model):
+        predictions = model.predict()
+        return predictions
 
-    num_iterations = 30
+    @profile
+    def forward_pass_inceptionv3(model):
+        predictions = model.predict()
+        return predictions
+
+    @profile
+    def forward_pass_vgg16(model):
+        predictions = model.predict()
+        return predictions
+
+    @profile
+    def forward_pass_vgg19(model):
+        predictions = model.predict()
+        return predictions
+
+
+    test_functions = {
+        'resnet50':[load_resnet50,forward_pass_resnet50],
+        'inceptionv3':[load_inceptionv3,forward_pass_inceptionv3],
+        'vgg16':[load_vgg16,forward_pass_vgg16],
+        'vgg19':[load_vgg19,forward_pass_vgg19]
+        }
+
     for iteration in range(num_iterations):
-        for model_name,model_function in models_dictionary.items():
+        for model_name, model_functions in test_functions.items():
             print(model_name)
-            model = model_function()
+            load_function, forward_pass_function = model_functions
+            model = load_function()
+            predictions = forward_pass_function(model)
             K.clear_session()
 
     print_profile_data()
-    save_profile_data('loading_times.log')
+    save_profile_data(log_filename)
+
 
 
