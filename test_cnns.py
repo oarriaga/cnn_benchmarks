@@ -36,10 +36,10 @@ def print_data_profile():
 
 def save_data_profile(file_name):
     for function_name, data in DATA_PROFILE.items():
-        max_time = np.max(data[1])
-        min_time = np.min(data[1])
-        avg_time = np.mean(data[1])
-        var_time = np.var(data[1])
+        max_time = np.max(data)
+        min_time = np.min(data)
+        avg_time = np.mean(data)
+        var_time = np.var(data)
         log_file = open(file_name,'w')
         log_file.write('Function %s called %d times.' % (function_name, data[0]))
         log_file.write('Execution time min: %.3f' % min_time)
