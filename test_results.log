@@ -1,40 +1,40 @@
-Function load_resnet50 called 3 times. 
-Execution time min: 40.516 
-Execution time max: 46.175 
-Execution time average: 43.059 
-Execution time variance: 5.502 
-Function forward_pass_vgg16 called 3 times. 
+Function load_inceptionv3 called 30 times. 
+Execution time min: 109.680 
+Execution time max: 121.827 
+Execution time average: 113.505 
+Execution time variance: 10.295 
+Function load_resnet50 called 30 times. 
+Execution time min: 38.973 
+Execution time max: 46.439 
+Execution time average: 43.237 
+Execution time variance: 2.538 
+Function forward_pass_vgg16 called 30 times. 
 Execution time min: 0.029 
-Execution time max: 0.410 
-Execution time average: 0.156 
-Execution time variance: 0.032 
-Function forward_pass_resnet50 called 3 times. 
-Execution time min: 0.369 
-Execution time max: 0.810 
-Execution time average: 0.519 
-Execution time variance: 0.042 
-Function load_inceptionv3 called 3 times. 
-Execution time min: 110.227 
-Execution time max: 118.336 
-Execution time average: 113.311 
-Execution time variance: 12.845 
-Function forward_pass_inceptionv3 called 3 times. 
-Execution time min: 0.684 
-Execution time max: 0.933 
-Execution time average: 0.770 
-Execution time variance: 0.013 
-Function load_vgg16 called 3 times. 
-Execution time min: 1.396 
-Execution time max: 1.622 
-Execution time average: 1.473 
-Execution time variance: 0.011 
-Function forward_pass_vgg19 called 3 times. 
-Execution time min: 0.034 
-Execution time max: 0.036 
-Execution time average: 0.035 
+Execution time max: 0.031 
+Execution time average: 0.030 
 Execution time variance: 0.000 
-Function load_vgg19 called 3 times. 
-Execution time min: 1.624 
-Execution time max: 1.705 
-Execution time average: 1.678 
+Function forward_pass_resnet50 called 30 times. 
+Execution time min: 0.370 
+Execution time max: 0.413 
+Execution time average: 0.385 
+Execution time variance: 0.000 
+Function load_vgg19 called 30 times. 
+Execution time min: 1.581 
+Execution time max: 3.032 
+Execution time average: 1.814 
+Execution time variance: 0.098 
+Function forward_pass_inceptionv3 called 30 times. 
+Execution time min: 0.668 
+Execution time max: 0.938 
+Execution time average: 0.696 
+Execution time variance: 0.002 
+Function forward_pass_vgg19 called 30 times. 
+Execution time min: 0.034 
+Execution time max: 0.807 
+Execution time average: 0.061 
+Execution time variance: 0.019 
+Function load_vgg16 called 30 times. 
+Execution time min: 1.382 
+Execution time max: 1.507 
+Execution time average: 1.422 
 Execution time variance: 0.001 
