@@ -21,7 +21,7 @@ for function_name, function_results in test_results.items():
         loading_arg = loading_arg + 1
 
 def make_box_plot(data,labels,image_name,save_image=False):
-    plt.figure(figsize=(10,10))
+    plt.figure(figsize=(12,5))
     plt.boxplot(data,labels=labels,
                 showmeans=False,
                 meanline=True,

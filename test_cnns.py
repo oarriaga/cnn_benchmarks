@@ -155,7 +155,7 @@ def test_cnns(num_iterations, log_filename = 'test_results'):
 
 if __name__ == '__main__':
 
-    test_cnns(num_iterations=30,log_filename='test_results')
+    test_cnns(num_iterations=30,log_filename='results/test_results')
 
 
 
